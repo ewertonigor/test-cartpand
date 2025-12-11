@@ -1,25 +1,34 @@
 'use client';
 
-import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Upsell1() {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
   useEffect(() => {
-    if (scriptLoaded && typeof window !== 'undefined' && (window as any).OcuExternal) {
-      new (window as any).OcuExternal();
-    }
-  }, [scriptLoaded]);
+    // Adiciona o script do CartPanda
+    const script = document.createElement('script');
+    script.src = 'https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js';
+    script.async = true;
+
+    script.onload = () => {
+      // Inicializa o OcuExternal quando o script carregar
+      if (typeof (window as any).OcuExternal !== 'undefined') {
+        new (window as any).OcuExternal();
+        console.log('OcuExternal inicializado');
+      }
+    };
+
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup: remove o script quando o componente desmontar
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
-      {/* Script do CartPanda - Upsell Externo */}
-      <Script
-        src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"
-        strategy="lazyOnload"
-        onLoad={() => setScriptLoaded(true)}
-      />
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
