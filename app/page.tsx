@@ -1,24 +1,4 @@
-'use client';
-
-import { useEffect } from "react";
-
 export default function Home() {
-  useEffect(() => {
-    // Carrega o script do Buy Button do CartPanda
-    const script = document.createElement('script');
-    script.src = 'https://kepler.mycartpanda.com/js/buy-button.min.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup: remove o script quando o componente desmontar
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
 
@@ -82,27 +62,37 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Checkout com Buy Button do CartPanda */}
+          {/* Call to Action - Checkout */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Complete sua compra
+              Garanta sua vaga agora!
             </h2>
 
-            {/* Buy Button do CartPanda */}
-            <div className="w-full">
-              <div
-                className="cartx-buy-button"
-                data-buy-button="2659bdd0-fbfd-4d38-8f02-9c32dea339a4"
-                data-shop-url="https://kepler.mycartpanda.com/"
-              />
-            </div>
+            <div className="space-y-6">
+              {/* Botão de Checkout do CartPanda - Modo Teste */}
+              <a
+                href="https://kepler.mycartpanda.com/checkout/204475549:1?test_mode=true"
+                className="block w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white text-center font-bold py-6 px-8 rounded-xl text-2xl transition-all shadow-2xl transform hover:scale-105"
+              >
+                🔒 COMPRAR AGORA - R$ 247,00
+              </a>
 
-            <div className="mt-6 flex items-center justify-center gap-4 text-sm text-gray-500">
-              <span>🔒 Pagamento 100% seguro</span>
-              <span>•</span>
-              <span>SSL Criptografado</span>
-              <span>•</span>
-              <span>Processado pelo CartPanda</span>
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 text-center">
+                <p className="text-blue-800 font-semibold mb-2">
+                  ✓ Pagamento 100% Seguro
+                </p>
+                <p className="text-blue-700 text-sm">
+                  Você será redirecionado para o checkout seguro do CartPanda
+                </p>
+              </div>
+
+              <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+                <span>🔒 SSL Criptografado</span>
+                <span>•</span>
+                <span>Garantia de 30 dias</span>
+                <span>•</span>
+                <span>Acesso imediato</span>
+              </div>
             </div>
           </div>
 
