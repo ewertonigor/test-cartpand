@@ -63,84 +63,38 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Checkout Form */}
+          {/* Call to Action */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Dados de Pagamento
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Garanta sua vaga agora!
             </h2>
 
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Nome Completo
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="João Silva"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="joao@email.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Número do Cartão
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="1234 5678 9012 3456"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Validade
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="MM/AA"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    CVV
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="123"
-                  />
-                </div>
-              </div>
-
+            <div className="space-y-6">
               {/* Botão de Checkout do CartPanda */}
               <a
                 href="https://kepler.mycartpanda.com/checkout/204475549:1?test_mode=true"
-                className="block w-full bg-green-600 hover:bg-green-700 text-white text-center font-bold py-4 px-6 rounded-xl text-lg transition-colors shadow-lg"
+                className="block w-full bg-green-600 hover:bg-green-700 text-white text-center font-bold py-5 px-6 rounded-xl text-xl transition-colors shadow-lg"
               >
-                🔒 FINALIZAR COMPRA SEGURA
+                🔒 COMPRAR AGORA - R$ 247,00
               </a>
 
               <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
                 <span>🔒 Pagamento 100% seguro</span>
                 <span>•</span>
                 <span>SSL Criptografado</span>
+                <span>•</span>
+                <span>Processado pelo CartPanda</span>
               </div>
-            </form>
+
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                <p className="text-green-800 font-semibold mb-2">
+                  ✓ Acesso imediato após a compra
+                </p>
+                <p className="text-green-700 text-sm">
+                  Você será redirecionado para o checkout seguro do CartPanda
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Garantia */}

@@ -134,9 +134,9 @@ export default function Upsell1() {
                     Somente hoje, por apenas:
                   </p>
                   <div className="text-5xl font-bold text-purple-600 mb-2">
-                    R$ 297,00
+                    R$ 6,80
                   </div>
-                  <p className="text-gray-500">ou 12x de R$ 29,70</p>
+                  <p className="text-gray-500">ou 12x de R$ 0,56</p>
                 </div>
               </div>
 
