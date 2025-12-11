@@ -63,37 +63,39 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Call to Action */}
+          {/* Checkout Incorporado */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Garanta sua vaga agora!
+              Complete sua compra
             </h2>
 
-            <div className="space-y-6">
-              {/* Botão de Checkout do CartPanda */}
-              <a
-                href="https://kepler.mycartpanda.com/checkout/204475549:1?test_mode=true"
-                className="block w-full bg-green-600 hover:bg-green-700 text-white text-center font-bold py-5 px-6 rounded-xl text-xl transition-colors shadow-lg"
-              >
-                🔒 COMPRAR AGORA - R$ 247,00
-              </a>
+            {/*
+              OPÇÃO 1: Iframe do CartPanda
+              Incorpora o checkout diretamente na página
+            */}
+            <div className="w-full">
+              <iframe
+                src="https://kepler.mycartpanda.com/checkout/204475549:1?test_mode=true&embedded=true"
+                className="w-full border-0 rounded-lg"
+                style={{ minHeight: '600px' }}
+                title="Checkout CartPanda"
+                allowFullScreen
+              />
+            </div>
 
-              <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
-                <span>🔒 Pagamento 100% seguro</span>
-                <span>•</span>
-                <span>SSL Criptografado</span>
-                <span>•</span>
-                <span>Processado pelo CartPanda</span>
-              </div>
+            {/*
+              OPÇÃO 2: Buy Button do CartPanda (ative se preferir)
+              Descomente e cole o código do Buy Button aqui:
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-                <p className="text-green-800 font-semibold mb-2">
-                  ✓ Acesso imediato após a compra
-                </p>
-                <p className="text-green-700 text-sm">
-                  Você será redirecionado para o checkout seguro do CartPanda
-                </p>
+              <div id="cartpanda-buy-button">
+                // Cole o código HTML do Buy Button aqui
               </div>
+            */}
+
+            <div className="mt-6 flex items-center justify-center gap-4 text-sm text-gray-500">
+              <span>🔒 Pagamento 100% seguro</span>
+              <span>•</span>
+              <span>SSL Criptografado</span>
             </div>
           </div>
 
