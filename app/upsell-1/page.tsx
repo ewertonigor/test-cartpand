@@ -1,16 +1,25 @@
+'use client';
+
 import Script from "next/script";
+import { useEffect, useState } from "react";
 
 export default function Upsell1() {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    if (scriptLoaded && typeof window !== 'undefined' && (window as any).OcuExternal) {
+      new (window as any).OcuExternal();
+    }
+  }, [scriptLoaded]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
       {/* Script do CartPanda - Upsell Externo */}
       <Script
         src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"
-        strategy="beforeInteractive"
+        strategy="lazyOnload"
+        onLoad={() => setScriptLoaded(true)}
       />
-      <Script id="ocu-init" strategy="afterInteractive">
-        {`new OcuExternal();`}
-      </Script>
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
