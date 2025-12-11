@@ -1,7 +1,26 @@
+'use client';
+
+import { useEffect } from "react";
+
 export default function Home() {
+  useEffect(() => {
+    // Carrega o script do Buy Button do CartPanda
+    const script = document.createElement('script');
+    script.src = 'https://kepler.mycartpanda.com/js/buy-button.min.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: remove o script quando o componente desmontar
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* IMPORTANTE: Adicionar o script do CartPanda aqui no head via metadata ou Script tag */}
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
@@ -63,39 +82,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Checkout Incorporado */}
+          {/* Checkout com Buy Button do CartPanda */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               Complete sua compra
             </h2>
 
-            {/*
-              OPÇÃO 1: Iframe do CartPanda
-              Incorpora o checkout diretamente na página
-            */}
+            {/* Buy Button do CartPanda */}
             <div className="w-full">
-              <iframe
-                src="https://kepler.mycartpanda.com/checkout/204475549:1?test_mode=true&embedded=true"
-                className="w-full border-0 rounded-lg"
-                style={{ minHeight: '600px' }}
-                title="Checkout CartPanda"
-                allowFullScreen
+              <div
+                className="cartx-buy-button"
+                data-buy-button="2659bdd0-fbfd-4d38-8f02-9c32dea339a4"
+                data-shop-url="https://kepler.mycartpanda.com/"
               />
             </div>
-
-            {/*
-              OPÇÃO 2: Buy Button do CartPanda (ative se preferir)
-              Descomente e cole o código do Buy Button aqui:
-
-              <div id="cartpanda-buy-button">
-                // Cole o código HTML do Buy Button aqui
-              </div>
-            */}
 
             <div className="mt-6 flex items-center justify-center gap-4 text-sm text-gray-500">
               <span>🔒 Pagamento 100% seguro</span>
               <span>•</span>
               <span>SSL Criptografado</span>
+              <span>•</span>
+              <span>Processado pelo CartPanda</span>
             </div>
           </div>
 
