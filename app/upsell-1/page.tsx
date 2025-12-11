@@ -1,12 +1,16 @@
-import Link from "next/link";
+import Script from "next/script";
 
 export default function Upsell1() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
-      {/*
-        IMPORTANTE: Adicionar o script do CartPanda aqui no head
-        Este script permite o one-click purchase usando os dados de pagamento já salvos
-      */}
+      {/* Script do CartPanda - Upsell Externo */}
+      <Script
+        src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"
+        strategy="beforeInteractive"
+      />
+      <Script id="ocu-init" strategy="afterInteractive">
+        {`new OcuExternal();`}
+      </Script>
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
@@ -120,27 +124,21 @@ export default function Upsell1() {
 
               {/* CTA Buttons */}
               <div className="space-y-4">
-                {/*
-                  NOTA: Este botão será substituído pelo link do CartPanda para one-click purchase
-                  O CartPanda processará o pagamento automaticamente usando os dados já salvos
-                */}
-                <Link
-                  href="/upsell-2"
+                {/* Botão Aceitar - One-Click Purchase via CartPanda */}
+                <a
+                  href="https://kepler.mycartpanda.com/ex-ocu/next-offer/ym21GAlYpD?accepted=yes"
                   className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-center font-bold py-5 px-6 rounded-xl text-xl transition-all shadow-xl transform hover:scale-105"
                 >
                   ✨ SIM! QUERO APROVEITAR ESTA OFERTA
-                </Link>
+                </a>
 
-                {/*
-                  NOTA: Este botão será substituído pelo link do CartPanda para recusar
-                  Vai redirecionar para o próximo upsell ou página de agradecimento
-                */}
-                <Link
-                  href="/upsell-2"
+                {/* Botão Recusar - Vai para próxima oferta */}
+                <a
+                  href="https://kepler.mycartpanda.com/ex-ocu/next-offer/ym21GAlYpD?accepted=no"
                   className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-center font-medium py-4 px-6 rounded-xl transition-colors"
                 >
                   Não, obrigado. Quero continuar sem isso.
-                </Link>
+                </a>
               </div>
 
               <div className="mt-6 text-center">
